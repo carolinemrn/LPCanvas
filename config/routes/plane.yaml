@@ -1,0 +1,29 @@
+plane_list:
+  path: /
+  methods: ["GET"]
+  controller: App\Controller\PlaneController::planeList
+
+plane:
+  path: /{id}
+  methods: ["GET"]
+  controller: App\Controller\PlaneController::getPlane
+  requirements:
+    id: '\d+'
+
+plane_delete:
+  path: /{id}
+  methods: ["DELETE"]
+  controller: App\Controller\PlaneController::deletePlane
+  requirements:
+    id: '\d+'
+
+plane_add:
+  path: /
+  methods: ["PUT"]
+  controller: App\Controller\PlaneController::addPlane
+
+plane_edit:
+  path: /{id}
+  methods: ["PATCH"]
+  controller: App\Controller\PlaneController::editPlane
+

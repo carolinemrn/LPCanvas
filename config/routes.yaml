@@ -1,3 +1,109 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+hello:
+  path: /hello
+  controller: App\Controller\HelloController::helloAction
+
+number:
+  path: /number/{number}
+  requirements:
+    number: '\d+'
+  controller: App\Controller\HelloController::numberAction
+
+action:
+  path: /action
+  methods: ["PUT"]
+  controller: App\Controller\HelloController::putAction
+
+user:
+  path: /user/{lastName}/{firstName}
+  controller: App\Controller\UserController::user
+  requirements:
+    lastName: "[a-zA-Z]+"
+    firstName: "[a-zA-Z]+"
+
+list:
+  path: /user/list
+  controller: App\Controller\UserController::list
+
+airport_list:
+  path: /airport
+  methods: ["GET"]
+  controller: App\Controller\AirportController::airportList
+
+airport:
+  path: /airport/{id}
+  methods: ["GET"]
+  controller: App\Controller\AirportController::getAirport
+  requirements:
+    id: '\d+'
+
+aiport_delete:
+  path: /airport/{id}
+  methods: ["DELETE"]
+  controller: App\Controller\AirportController::deleteAirport
+  requirements:
+    id: '\d+'
+
+plane_list:
+  path: /plane
+  methods: ["GET"]
+  controller: App\Controller\PlaneController::planeList
+
+plane:
+  path: /plane/{id}
+  methods: ["GET"]
+  controller: App\Controller\PlaneController::getPlane
+  requirements:
+    id: '\d+'
+
+plane_delete:
+  path: /plane/{id}
+  methods: ["DELETE"]
+  controller: App\Controller\PlaneController::deletePlane
+  requirements:
+    id: '\d+'
+
+flight_list:
+  path: /flight
+  methods: ["GET"]
+  controller: App\Controller\FlightController::flightList
+
+flight:
+  path: /flight/{id}
+  methods: ["GET"]
+  controller: App\Controller\FlightController::getFlight
+  requirements:
+    id: '\d+'
+
+flight_delete:
+  path: /flight/{id}
+  methods: ["DELETE"]
+  controller: App\Controller\FlightController::deleteFlight
+  requirements:
+    id: '\d+'
+
+pilot_list:
+  path: /pilot
+  methods: ["GET"]
+  controller: App\Controller\PilotController::pilotList
+
+pilot:
+  path: /pilot/{id}
+  methods: ["GET"]
+  controller: App\Controller\PilotController::getPilot
+  requirements:
+    id: '\d+'
+
+pilot_delete:
+  path: /pilot/{id}
+  methods: ["DELETE"]
+  controller: App\Controller\PilotController::deletePilot
+  requirements:
+    id: '\d+'
+
+planes:
+  resource: './routes/plane.yaml'
+  prefix: /plane
